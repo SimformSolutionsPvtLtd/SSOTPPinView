@@ -61,6 +61,10 @@ class SSOTPPinViewModel: ObservableObject {
         }
     }
     
+    func formatOTPCode(_ otpCode: String) -> String {
+        return String(repeating: getSecureTypeText(type: secureTypeText), count: otpCode.count)
+    }
+    
     func limitText(_ upper: Int) {
         if otpCode.count > upper {
             otpCode = String(otpCode.prefix(upper))

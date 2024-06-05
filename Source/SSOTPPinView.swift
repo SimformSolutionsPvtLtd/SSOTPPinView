@@ -40,7 +40,7 @@ public struct SSOTPPinView: View {
             }
             .frame(width: 0, height: 0, alignment: .center)
             .font(Font.system(size: 0))
-            .accentColor(.blue)
+            .tint(.blue)
             .foregroundStyle(.blue)
             .multilineTextAlignment(.center)
             .onReceive(Just(viewModel.otpCode)) { _ in viewModel.limitText(numberOfCount)}
@@ -74,7 +74,7 @@ public struct SSOTPPinView: View {
             }
             .frame(width: 0, height: 0, alignment: .center)
             .font(Font.system(size: 0))
-            .accentColor(.blue)
+            .tint(.blue)
             .foregroundStyle(.blue)
             .multilineTextAlignment(.center)
             .keyboardType(getKeyBoard(type: self.keyboardType))
@@ -115,43 +115,67 @@ public struct SSOTPPinView: View {
             } else {
                 ssOTPTextFiled
             }
-            
-            HStack {
-                ForEach(0..<self.numberOfCount, id: \.self) { index in
-                    ZStack {
-                        Text(viewModel.getOTPPin(at: index))
-                            .font(notifier.font)
-                            .fontWeight(notifier.fontWeight)
-                            .foregroundStyle(notifier.textColor)
-                        if type == .OTP_VIEW_TYPE_CRICLE {
-                            Circle()
-                                .stroke(notifier.lineColor, lineWidth: notifier.lineWidth)
+            if type == .OTP_VIEW_TYPE_NONE {
+                Text(viewModel.isSecureTextEntry ? viewModel.formatOTPCode(viewModel.otpCode) : viewModel.otpCode)
+                    .fontWeight(notifier.fontWeight)
+                    .font(notifier.font)
+                    .foregroundStyle(notifier.textColor)
+                    .frame(width: notifier.strokeWidth, height: notifier.strokeHeight)
+                    .lineLimit(1)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(notifier.lineColor, lineWidth: notifier.lineWidth)
+                    )
+                    .onTapGesture {
+                        if viewModel.otpCode.count == numberOfCount {
+                            self.focusedField = .field
+                        }
+                    }
+            } else {
+                HStack {
+                    ForEach(0..<self.numberOfCount, id: \.self) { index in
+                        ZStack {
+                            Text(viewModel.getOTPPin(at: index))
+                                .font(notifier.font)
+                                .fontWeight(notifier.fontWeight)
+                                .foregroundStyle(notifier.textColor)
                                 .onTapGesture {
                                     if viewModel.otpCode.count == numberOfCount {
                                         self.focusedField = .field
                                     }
                                 }
-                        } else if type == .OTP_VIEW_TYPE_BOX {
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(notifier.lineColor, lineWidth: notifier.lineWidth)
-                                .frame(width: notifier.strokeWidth, height: notifier.strokeHeight)
-                                .onTapGesture {
-                                    if viewModel.otpCode.count == numberOfCount {
-                                        self.focusedField = .field
+                            if type == .OTP_VIEW_TYPE_CRICLE {
+                                Circle()
+                                    .stroke(notifier.lineColor, lineWidth: notifier.lineWidth)
+                                    .frame(width: notifier.strokeWidth, height: notifier.strokeHeight)
+                                    .onTapGesture {
+                                        if viewModel.otpCode.count == numberOfCount {
+                                            self.focusedField = .field
+                                        }
                                     }
-                                }
-                        } else if type == .OTP_VIEW_TYPE_UNDERLINE {
-                            Rectangle()
-                                .frame(height: notifier.lineWidth)
-                                .foregroundStyle(notifier.lineColor)
-                                .padding(.trailing, 5)
-                                .padding(.leading, 5)
-                                .padding(.top, notifier.strokeHeight)
-                                .onTapGesture {
-                                    if viewModel.otpCode.count == numberOfCount {
-                                        self.focusedField = .field
+                            } else if type == .OTP_VIEW_TYPE_BOX {
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(notifier.lineColor, lineWidth: notifier.lineWidth)
+                                    .frame(width: notifier.strokeWidth, height: notifier.strokeHeight)
+                                    .onTapGesture {
+                                        if viewModel.otpCode.count == numberOfCount {
+                                            self.focusedField = .field
+                                        }
                                     }
-                                }
+                            } else if type == .OTP_VIEW_TYPE_UNDERLINE {
+                                Rectangle()
+                                    .frame(height: notifier.lineWidth)
+                                    .frame(width: notifier.strokeWidth)
+                                    .foregroundStyle(notifier.lineColor)
+                                    .padding(.trailing, 5)
+                                    .padding(.leading, 5)
+                                    .padding(.top, notifier.strokeHeight)
+                                    .onTapGesture {
+                                        if viewModel.otpCode.count == numberOfCount {
+                                            self.focusedField = .field
+                                        }
+                                    }
+                            }
                         }
                     }
                 }
