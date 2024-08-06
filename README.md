@@ -14,9 +14,9 @@ SSOTPPinView is a comprehensive library for iOS projects, designed to streamline
 [![PRs Welcome][PR-image]][PR-url]
 
 # Screenshots
-| Box | Circle | Underline |
-| :--: | :-----: | :--: |
-| ![](Assets/BoxType.png) | ![](Assets/Circle.png) | ![](Assets/Underline.png) |
+| Box | Circle | Underline | None |
+| :--: | :-----: | :--: | :--: |
+| ![](Assets/BoxType.png) | ![](Assets/Circle.png) | ![](Assets/Underline.png) | ![](Assets/None.png) |
 
  
 # Features!
