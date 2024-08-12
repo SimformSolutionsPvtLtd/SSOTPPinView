@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PrivacyInfo</key>
+    <dict>
+        <key>DataCollection</key>
+        <array>
+            <dict>
+                <key>Identifier</key>
+                <string>keyboard-input</string>
+                <key>Description</key>
+                <string>The custom keyboard collects input data to provide text input functionality.</string>
+                <key>Purpose</key>
+                <string>Text input and suggestion improvement</string>
+                <key>CollectionFrequency</key>
+                <string>frequent</string>
+                <key>RetentionPolicy</key>
+                <string>ephemeral</string>
+                <key>ThirdPartySharing</key>
+                <false/>
+            </dict>
+        </array>
+        <key>DataUsage</key>
+        <array>
+            <dict>
+                <key>Identifier</key>
+                <string>keyboard-input</string>
+                <key>Description</key>
+                <string>The custom keyboard uses input data to improve text suggestions and ensure correct functionality.</string>
+                <key>Purpose</key>
+                <string>Text input functionality</string>
+                <key>UsageScope</key>
+                <string>in-app</string>
+            </dict>
+        </array>
+        <key>DataSharing</key>
+        <array>
+            <dict>
+                <key>Identifier</key>
+                <string>keyboard-input</string>
+                <key>Description</key>
+                <string>The custom keyboard does not share input data with third parties.</string>
+                <key>Purpose</key>
+                <string>Not applicable</string>
+                <key>SharingScope</key>
+                <string>none</string>
+            </dict>
+        </array>
+    </dict>
+</dict>
+</plist>
+
