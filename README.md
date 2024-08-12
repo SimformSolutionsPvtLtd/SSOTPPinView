@@ -1,6 +1,5 @@
 
-<img width="1280" alt="MicrosoftTeams-image (18)" src="https://github.com/SimformSolutionsPvtLtd/SSOTPPinView/blob/readmeFileUpdate/Assets/SSOTPPinView.png">
-
+<img src="Assets/SSOTPPinView.png" alt="SSOTPPinView">
 
 # SSOTPPinView
 
