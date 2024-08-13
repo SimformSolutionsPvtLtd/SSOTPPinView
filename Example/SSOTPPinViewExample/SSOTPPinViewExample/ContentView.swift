@@ -13,22 +13,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            SSOTPPinView(textFieldType: .OTP_VIEW_TYPE_BOX, numberOfCount: 5, keyboardOptions: .customRandomDigitsType) { newValue in
+            SSOTPPinView(textFieldType: .circle, numberOfCount: 5, keyboardOptions: .customRandomDigits) { newValue in
                 self.otp = newValue
                 print(otp)
             }
             .isSecureTextEntry(true)
-            .keyFontColor(.blue)
-            .keyFontColor(.black)
             .secureTextType(.star)
-            .textColor(.red)
+            .textColor(.black)
             .fontWeight(.bold)
-            .lineColor(.red)
+            .lineColor(.blue)
             .lineWidth(2)
             // custom keyboard property
-            .keyboardBackgroundColor(.white)
-            .keyFontColor(.red)
-            .keyStrokeColor(.blue)
+            .keyboardBackgroundColor(.red)
+            .keyFontColor(.white)
+            .keyStrokeColor(.black)
         }
         .padding()
     }
