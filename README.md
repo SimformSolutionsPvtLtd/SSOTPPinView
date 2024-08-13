@@ -9,6 +9,7 @@ SSOTPPinView is a comprehensive library for iOS projects, designed to streamline
 [![License][license-image]][license-url]
 [![Carthage Compatible][carthage-image]][carthage-url]
 [![SwiftPM Compatible][spm-image]][spm-url]
+[![Version](https://img.shields.io/cocoapods/v/SSOTPPinView.svg?style=flat)](https://cocoapods.org/pods/SSOTPPinView)
 [![Platform][platform-image]][platform-url]
 [![PRs Welcome][PR-image]][PR-url]
 
@@ -35,29 +36,14 @@ SSOTPPinView is a comprehensive library for iOS projects, designed to streamline
 
        use_frameworks!
        pod 'SSOTPPinView'
-
--  
-       import UIKit
-       import SSOTPPinView
        
 **Swift Package Manager**
  
 - When using Xcode 11 or later, you can install SSOTPPinView by going to your Project settings > Swift Packages and add the repository by providing the GitHub URL. Alternatively, you can go to File > Swift Packages > Add Package Dependencies...
 
-- import SSOTPPinView
-
-####  Carthage
--   [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-```bash
-$ brew update
-$ brew install carthage
-```
-To integrate `SSOTPPinView` into your Xcode project using Carthage, add the following line to your `Cartfile`:
-
-```ogdl
-github "SimformSolutionsPvtLtd/SSOTPPinView"
-```
-Run `carthage` to build and drag the `SSOTPPinView`(Source/SSOTPPinView) into your Xcode project.
+         dependencies: [
+             .package(url: "https://github.com/SimformSolutionsPvtLtd/SSOTPPinView.git", from: "1.0.0")
+         ]
 
 **Manually**
 
@@ -66,6 +52,9 @@ Run `carthage` to build and drag the `SSOTPPinView`(Source/SSOTPPinView) into yo
 # Usage
 
 ```swift
+
+import SSOTPPinView
+
     
 SSOTPPinView(textFieldType: .OTP_VIEW_TYPE_BOX, numberOfCount: 5, keyboardOptions: .customRandomDigitsType) { newValue in
                 self.otp = newValue
@@ -121,4 +110,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [cocoa-url]:https://img.shields.io/cocoapods/v/LFAlertController.svg
 [PR-image]:https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [PR-url]:http://makeapullrequest.com
+
 
