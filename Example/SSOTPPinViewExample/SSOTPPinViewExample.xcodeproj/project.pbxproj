@@ -13,7 +13,7 @@
 		9BE9D6FF2C0F36EC009DF135 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE9D6FE2C0F36EC009DF135 /* Preview Assets.xcassets */; };
 		9BE9D7122C0F3879009DF135 /* SSOTPPinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE9D70B2C0F3879009DF135 /* SSOTPPinViewModel.swift */; };
 		9BE9D7132C0F3879009DF135 /* CustomDigitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE9D70D2C0F3879009DF135 /* CustomDigitView.swift */; };
-		9BE9D7142C0F3879009DF135 /* CustomTFKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE9D70E2C0F3879009DF135 /* CustomTFKeyboard.swift */; };
+		9BE9D7142C0F3879009DF135 /* CustomKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE9D70E2C0F3879009DF135 /* CustomKeyboard.swift */; };
 		9BE9D7152C0F3879009DF135 /* SSOTPPinViewNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE9D7102C0F3879009DF135 /* SSOTPPinViewNotifier.swift */; };
 		9BE9D7162C0F3879009DF135 /* SSOTPPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE9D7112C0F3879009DF135 /* SSOTPPinView.swift */; };
 		9BE9D71B2C0F3AF9009DF135 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE9D71A2C0F3AF9009DF135 /* View+Extension.swift */; };
@@ -29,7 +29,7 @@
 		9BE9D6FE2C0F36EC009DF135 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9BE9D70B2C0F3879009DF135 /* SSOTPPinViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSOTPPinViewModel.swift; sourceTree = "<group>"; };
 		9BE9D70D2C0F3879009DF135 /* CustomDigitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDigitView.swift; sourceTree = "<group>"; };
-		9BE9D70E2C0F3879009DF135 /* CustomTFKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTFKeyboard.swift; sourceTree = "<group>"; };
+		9BE9D70E2C0F3879009DF135 /* CustomKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKeyboard.swift; sourceTree = "<group>"; };
 		9BE9D7102C0F3879009DF135 /* SSOTPPinViewNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSOTPPinViewNotifier.swift; sourceTree = "<group>"; };
 		9BE9D7112C0F3879009DF135 /* SSOTPPinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSOTPPinView.swift; sourceTree = "<group>"; };
 		9BE9D71A2C0F3AF9009DF135 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				9BE9D70D2C0F3879009DF135 /* CustomDigitView.swift */,
-				9BE9D70E2C0F3879009DF135 /* CustomTFKeyboard.swift */,
+				9BE9D70E2C0F3879009DF135 /* CustomKeyboard.swift */,
 			);
 			path = CustomKeyboardViews;
 			sourceTree = "<group>";
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE9D71F2C0F3B6F009DF135 /* TextField+Extension.swift in Sources */,
-				9BE9D7142C0F3879009DF135 /* CustomTFKeyboard.swift in Sources */,
+				9BE9D7142C0F3879009DF135 /* CustomKeyboard.swift in Sources */,
 				9BE9D7162C0F3879009DF135 /* SSOTPPinView.swift in Sources */,
 				9BE9D71B2C0F3AF9009DF135 /* View+Extension.swift in Sources */,
 				9BE9D7152C0F3879009DF135 /* SSOTPPinViewNotifier.swift in Sources */,
