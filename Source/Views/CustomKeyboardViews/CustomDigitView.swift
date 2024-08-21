@@ -7,11 +7,29 @@
 
 import SwiftUI
 
+/// A custom keyboard view for OTP input, providing a grid of digit buttons, a delete button, and a secure text toggle.
 struct CustomDigitView: View {
     
+    //MARK: Observed Object
+    /// An observed object that manages and publishes changes to the OTP pin view's data and state.
+    ///
+    /// - **Default Value:** Must be initialized externally with an instance of `SSOTPPinViewModel`
+    ///
+    /// This object is responsible for handling the OTP code and related functionality, including secure text entry and code formatting.
     @ObservedObject var viewModel: SSOTPPinViewModel
+    
+    /// An observed object that manages and publishes changes to the OTP pin view's visual and functional properties.
+    ///
+    /// This object is used to handle and respond to changes in properties related to the appearance and behavior of the OTP pin view.
     @ObservedObject var notifier: SSOTPPinViewNotifier
 
+    /// The body of the view.
+    ///
+    /// This computed property arranges the custom keyboard into a `ZStack` and `VStack` layout. It uses a grid of buttons for digits,
+    /// with additional rows for the delete button and a toggle for secure text entry. The layout and styles are dynamically adjusted
+    /// based on the `viewModel` and `notifier` properties.
+    ///
+    /// - Returns: A `some View` representing the custom digit keyboard.
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -19,11 +37,11 @@ struct CustomDigitView: View {
                     HStack(spacing: 0) {
                         ForEach(0..<3) { column in
                             let index = row * 3 + column
-                            if (index < ((notifier.keyBoardType == .customRandomDigitsType) ? viewModel.remdomDigits.count : viewModel.digits.count)) {
+                            if (index < ((notifier.keyboardType == .customRandomDigits) ? viewModel.randomDigits.count : viewModel.digits.count)) {
                                 Button {
-                                    viewModel.otpCode += (notifier.keyBoardType == .customRandomDigitsType) ? "\(viewModel.remdomDigits[index])" : "\(viewModel.digits[index])"
+                                    viewModel.otpCode += (notifier.keyboardType == .customRandomDigits) ? "\(viewModel.randomDigits[index])" : "\(viewModel.digits[index])"
                                 } label: {
-                                    Text((notifier.keyBoardType == .customRandomDigitsType) ? "\(viewModel.remdomDigits[index])" : "\(viewModel.digits[index])")
+                                    Text((notifier.keyboardType == .customRandomDigits) ? "\(viewModel.randomDigits[index])" : "\(viewModel.digits[index])")
                                         .foregroundStyle(notifier.keyFontColor)
                                         .frame(maxWidth: .infinity)
                                         .frame(maxHeight: .infinity)
@@ -66,9 +84,9 @@ struct CustomDigitView: View {
                     
                     HStack {
                         Button {
-                            viewModel.otpCode += (notifier.keyBoardType == .customRandomDigitsType) ? "\(viewModel.remdomDigits[9])" : "\(viewModel.digits[9])"
+                            viewModel.otpCode += (notifier.keyboardType == .customRandomDigits) ? "\(viewModel.randomDigits[9])" : "\(viewModel.digits[9])"
                         } label: {
-                            Text((notifier.keyBoardType == .customRandomDigitsType) ? "\(viewModel.remdomDigits[9])" : "\(viewModel.digits[9])")
+                            Text((notifier.keyboardType == .customRandomDigits) ? "\(viewModel.randomDigits[9])" : "\(viewModel.digits[9])")
                                 .foregroundStyle(notifier.keyFontColor)
                                 .frame(maxWidth: .infinity)
                                 .frame(maxHeight: .infinity)

@@ -8,39 +8,65 @@
 import Foundation
 import SwiftUI
 
+// MARK: - TextField Extensions
+
 extension TextField {
+    
+    /// A method that sets a custom input view for the `TextField` based on the provided keyboard type.
+    ///
+    /// This method allows you to configure the input view of a `TextField` to use a custom keyboard or a default system keyboard,
+    /// depending on the specified `keyboardType`. When using custom keyboards, the provided content view is used as the keyboard view.
+    ///
+    /// - Parameters:
+    ///   - keyboardType: The type of keyboard to be used. This determines whether the standard keyboard or a custom keyboard is displayed.
+    ///   - content: A closure that returns the custom keyboard view. This is used when `keyboardType` is `.customRandomDigits` or `.customNormalDigits`.
+    ///
+    /// - Returns: A modified `TextField` with the specified input view.
     @ViewBuilder
-    func inputView<Content: View>(keyboardType: KeyBoardType, @ViewBuilder content: @escaping () -> Content) -> some View {
+    func inputView<Content: View>(keyboardType: KeyboardType, @ViewBuilder content: @escaping () -> Content) -> some View {
         switch keyboardType {
-        case .numberPadType:
+        case .numberPad:
             self
                 .keyboardType(.namePhonePad)
-        case .defaultType:
+        case .default:
             self
                 .keyboardType(.default)
-        case .customRandomDigitsType, .customNormalDigitsType:
+        case .customRandomDigits, .customNormalDigits:
             self
                 .background {
-                    SetTFKeyboard(keyboardContent: content())
+                    CustomKeyboard(keyboardContent: content())
                 }
         }
     }
 }
 
+// MARK: - SecureField Extensions
+
 extension SecureField {
+    
+    /// A method that sets a custom input view for the `SecureField` based on the provided keyboard type.
+    ///
+    /// This method allows you to configure the input view of a `SecureField` to use a custom keyboard or a default system keyboard,
+    /// depending on the specified `keyboardType`. When using custom keyboards, the provided content view is used as the keyboard view.
+    ///
+    /// - Parameters:
+    ///   - keyboardType: The type of keyboard to be used. This determines whether the standard keyboard or a custom keyboard is displayed.
+    ///   - content: A closure that returns the custom keyboard view. This is used when `keyboardType` is `.customRandomDigits` or `.customNormalDigits`.
+    ///
+    /// - Returns: A modified `SecureField` with the specified input view.
     @ViewBuilder
-    func inputView<Content: View>(keyboardType: KeyBoardType, @ViewBuilder content: @escaping () -> Content) -> some View {
+    func inputView<Content: View>(keyboardType: KeyboardType, @ViewBuilder content: @escaping () -> Content) -> some View {
         switch keyboardType {
-        case .numberPadType:
+        case .numberPad:
             self
                 .keyboardType(.numberPad)
-        case .defaultType:
+        case .default:
             self
                 .keyboardType(.default)
-        case .customRandomDigitsType, .customNormalDigitsType:
+        case .customRandomDigits, .customNormalDigits:
             self
                 .background {
-                    SetTFKeyboard(keyboardContent: content())
+                    CustomKeyboard(keyboardContent: content())
                 }
         }
     }

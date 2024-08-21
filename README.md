@@ -7,16 +7,15 @@ SSOTPPinView is a comprehensive library for iOS projects, designed to streamline
 
 [![Swift Version][swift-image]][swift-url]
 [![License][license-image]][license-url]
-[![Carthage Compatible][carthage-image]][carthage-url]
 [![SwiftPM Compatible][spm-image]][spm-url]
 [![Version](https://img.shields.io/cocoapods/v/SSOTPPinView.svg?style=flat)](https://cocoapods.org/pods/SSOTPPinView)
 [![Platform][platform-image]][platform-url]
 [![PRs Welcome][PR-image]][PR-url]
 
 # Screenshots
-| Box | Circle | Underline | None |
-| :--: | :-----: | :--: | :--: |
-| ![](Assets/BoxType.png) | ![](Assets/Circle.png) | ![](Assets/Underline.png) | ![](Assets/None.png) |
+| Box | Circle | Underline |
+| :--: | :-----: | :--: |
+| <img width=260px src="https://github.com/SimformSolutionsPvtLtd/SSOTPPinView/blob/master/Assets/Box.gif" /> | <img width=260px src="https://github.com/SimformSolutionsPvtLtd/SSOTPPinView/blob/master/Assets/Circle.gif" /> | <img width=260px src="https://github.com/SimformSolutionsPvtLtd/SSOTPPinView/blob/master/Assets/Underline.gif" /> |
 
  
 # Features!
@@ -26,48 +25,78 @@ SSOTPPinView is a comprehensive library for iOS projects, designed to streamline
 - Easily integrate SSOTPPinView into your SwiftUI projects for modern and responsive user interfaces.
   
 # Requirements
-  - iOS 16
-  - Xcode 14
+  - iOS 16+
+  - Xcode 14+
 
 # Installation
  **CocoaPods**
  
-- You can use CocoaPods to install SSOTPPinView by adding it to your Podfile:
+ [CocoaPods][CocoaPods.org] is a dependency manager for Cocoa projects. You can install it with the following command:
 
-       use_frameworks!
-       pod 'SSOTPPinView'
+```bash
+$ gem install cocoapods
+```
+
+Navigate to project root folder to integrate pod.
+
+```bash
+$ pod init
+```
+
+It will generate `Podfile` for your project. To integrate SSOTPPinView into your project specify it in your `Podfile`:
+
+```ruby
+platform :ios, '16.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'SSOTPPinView'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+It will generate `<Project>.xcworkspace` file. From now on you should open the project using this file.
+
        
 **Swift Package Manager**
  
-- When using Xcode 11 or later, you can install SSOTPPinView by going to your Project settings > Swift Packages and add the repository by providing the GitHub URL. Alternatively, you can go to File > Swift Packages > Add Package Dependencies...
+You can install `SSOTPPinView` using [Swift Package Manager] by:
 
-         dependencies: [
-             .package(url: "https://github.com/SimformSolutionsPvtLtd/SSOTPPinView.git", from: "1.0.0")
-         ]
+1. Go to `Xcode` -> `File` -> `Add Package Dependencies...`
+2. Add package URL [https://cocoapods.org/pods/SSOTPPinView][SSOTPPinView]
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/SimformSolutionsPvtLtd/SSOTPPinView.git", from: "1.0.1")
+]
+```
 
 **Manually**
 
-- Add SSOTPPinView folder from /Sources folder to your project.
+- Add SSOTPPinView folder from /Source folder to your project.
 
 # Usage
 
 ```swift
-
 import SSOTPPinView
-
+```
     
-SSOTPPinView(textFieldType: .OTP_VIEW_TYPE_BOX, numberOfCount: 5, keyboardOptions: .customRandomDigitsType) { newValue in
+```swift
+SSOTPPinView(textFieldType: .underline, numberOfCount: 5, keyboardOptions: .customRandomDigits) { newValue in
                 self.otp = newValue
-                print(otp)
             }
             .isSecureTextEntry(true)
-            .keyFontColor(.blue)
-            .keyFontColor(.black)
-            .secureTextType(.star)
+            .secureTextType(.dot)
             .textColor(.red)
             .fontWeight(.bold)
             .lineColor(.red)
             .lineWidth(2)
+            // custom keyboard property
             .keyboardBackgroundColor(.white)
             .keyFontColor(.red)
             .keyStrokeColor(.blue)
@@ -79,9 +108,17 @@ Whether you're helping us fix bugs, improve the docs, or a feature request, we'd
 
 Check out our [**Contributing Guide**](CONTRIBUTING.md) for ideas on contributing.
 
-## Find this example useful? ❤️
+## Bugs and Feedback
 
-Give a ⭐️ if this project helped you!
+For bugs, feature requests, and discussion use [GitHub Issues].
+
+## Documentation
+
+__[Documentation]__ - Find the full API reference for more detailed documentation.
+
+## Find this samples useful? :heart:
+
+Support it by joining [stargazers] :star: for this repository.
 
 ## Check out our other Libraries
 
@@ -110,5 +147,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [cocoa-url]:https://img.shields.io/cocoapods/v/LFAlertController.svg
 [PR-image]:https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [PR-url]:http://makeapullrequest.com
-
-
+[Swift Package Manager]:https://www.swift.org/package-manager
+[Github Issues]:https://github.com/SimformSolutionsPvtLtd/SSOTPPinView/issues
+[SSOTPPinView]:https://github.com/SimformSolutionsPvtLtd/SSOTPPinView
+[CocoaPods]:https://cocoapods.org/pods/SSOTPPinView
+[CocoaPods.org]:https://cocoapods.org/
+[stargazers]:https://github.com/SimformSolutionsPvtLtd/SSOTPPinView/stargazers
+[Documentation]:https://swiftpackageindex.com/SimformSolutionsPvtLtd/SSOTPPinView
