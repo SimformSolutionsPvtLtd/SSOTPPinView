@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name              = 'SSOTPPinView'
-    s.version           = '1.0.0'
+    s.version           = '1.0.1'
     s.summary           = 'A custom view to enter a code usually used in authentication.'
     s.description       = <<-DESC
     SSOTPPinView is a comprehensive library for iOS projects, designed to streamline the creation and customization of OTP (One Time Password) input views. With support for custom keyboards, extensive OTP view customization, and seamless integration with SwiftUI, SSOTPPinView provides a complete solution for secure and user-friendly OTP entry.
